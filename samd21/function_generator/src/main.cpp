@@ -54,7 +54,7 @@ void init_TC() { // Datasheet: 30 TC (Timer/Counter)
 void init_DAC() { // Datasheet: 35 DAC (Digital-to-Analog Converter)
   DAC->CTRLA.bit.ENABLE = 0;
   while(DAC->STATUS.bit.SYNCBUSY);
-  DAC->CTRLB.reg = DAC_CTRLB_REFSEL_AVCC | DAC_CTRLB_EOEN | DAC_CTRLB_BDWP;
+  DAC->CTRLB.reg = DAC_CTRLB_REFSEL_AVCC | DAC_CTRLB_EOEN;
   DAC->EVCTRL.reg = DAC_EVCTRL_STARTEI | DAC_EVCTRL_EMPTYEO; // enable DAC START CONVERSION event & DAC DATA BUFFER EMPTY event
   DAC->CTRLA.bit.ENABLE = 1;
   while(DAC->STATUS.bit.SYNCBUSY);
